@@ -1,5 +1,6 @@
 <assembly>
-	<id>bin</id>
+	<id>run_dir</id>
+	<includeBaseDirectory>false</includeBaseDirectory>  
 	<!-- Specifies that our binary distribution is a zip package -->
 	<formats>
 		<format>tar.gz</format>
@@ -25,6 +26,7 @@
 			<includes>
 				<include>*.*</include>
 			</includes>
+			 <fileMode>0777</fileMode>
 		</fileSet>
 		<!-- Adds the jar file of our example application to the root directory 
 			of the created zip package. -->
@@ -34,6 +36,32 @@
 			<includes>
 				<include>*.jar</include>
 			</includes>
+			<excludes>
+				<exclude>**/*.properties</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet>
+			<directory>./</directory>
+			<outputDirectory>logs</outputDirectory>
+			<excludes>
+				<exclude>*/**</exclude>
+			</excludes>
+		</fileSet>
+
+		<fileSet>
+			<directory>src/main/resources</directory>
+			<outputDirectory>properties</outputDirectory>
+			<includes>
+				<include>*.*</include>
+			</includes>
+		</fileSet>
+
+		<fileSet>
+			<directory>./</directory>
+			<outputDirectory>pid</outputDirectory>
+			<excludes>
+				<exclude>*/**</exclude>
+			</excludes>
 		</fileSet>
 	</fileSets>
 </assembly>
