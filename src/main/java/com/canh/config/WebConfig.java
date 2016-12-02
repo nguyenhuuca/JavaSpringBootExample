@@ -19,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class WebConfig extends WebMvcAutoConfigurationAdapter {
 	@Bean
 	public Docket managementDocket(){
-		return new Docket(DocumentationType.SWAGGER_2).groupName("my-project").apiInfo(apiInfo()).select().paths( PathSelectors.regex("/.*")).build();
+		return new Docket(DocumentationType.SWAGGER_2).groupName("my-project").apiInfo(apiInfo()).select().paths( PathSelectors.regex("/example.*")).build();
 	}
 
 	private ApiInfo apiInfo(){
